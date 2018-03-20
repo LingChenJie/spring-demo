@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 指定扫描cn.paxsz.bean报下的所有类中的注解.
+         注意:扫描包时.会扫描指定报下的所有子孙包
+       -->
+    <context:component-scan base-package="com.paxsz.bean2"/>
+
+    <!-- 将User对象交给spring容器管理 -->
+    <!-- Bean元素:使用该元素描述需要spring容器管理的对象
+            class属性:被管理对象的完整类名.
+            name属性:给被管理的对象起个名字.获得对象时根据该名称获得对象.
+                    可以重复.可以使用特殊字符.
+            id属性: 与name属性一模一样.
+                    名称不可重复.不能使用特殊字符.
+            结论: 尽量使用name属性.
+      -->
+    <bean name="user" class="com.paxsz.bean.User"/>
+
+    <!-- 导入其他spring配置文件 -->
+    <import resource="com/paxsz/b_create/applicationContext.xml"/>
+
+</beans>
